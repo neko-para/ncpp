@@ -11,16 +11,16 @@ namespace NCPP {
 	_Window _NewWnd(newscr);
 	_Window _CurWnd(curscr);
 
-	Window* StdWnd() {
+	Window StdWnd() {
 		_StdWnd.Update(stdscr);
-		return &_StdWnd;
+		return _StdWnd;
 	}
-	Window* CurWnd() {
+	Window CurWnd() {
 		_CurWnd.Update(curscr);
-		return &_CurWnd;
+		return _CurWnd;
 	}
-	Window* NewWnd() {
+	Window NewWnd() {
 		_NewWnd.Update(newscr);
-		return &_NewWnd;
+		return _NewWnd;
 	}
 }

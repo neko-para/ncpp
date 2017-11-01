@@ -14,17 +14,15 @@ namespace NCPP {
 				}
 			}
 		};
-		Window(const Window& ) {}
-		Window& operator=(const Window& ) { return *this; }
 	protected:
 		Share<WindowShare> Wnd;
 		Window(WINDOW* wnd = 0) : Wnd(wnd) {}
 	public:
-		Window* CreateSub(int h, int w, int y, int x) const {
-			return new Window(subwin(Wnd, h, w, y, x));
+		Window CreateSub(int h, int w, int y, int x) const {
+			return Window(subwin(Wnd, h, w, y, x));
 		}
-		Window* CreateDer(int h, int w, int y, int x) const {
-			return new Window(derwin(Wnd, h, w, y, x));
+		Window CreateDer(int h, int w, int y, int x) const {
+			return Window(derwin(Wnd, h, w, y, x));
 		}
 		int Width() const {
 			return getmaxx(Wnd);
@@ -40,9 +38,9 @@ namespace NCPP {
 		}
 	};
 
-	Window* StdWnd();
-	Window* CurWnd();
-	Window* NewWnd();
+	Window StdWnd();
+	Window CurWnd();
+	Window NewWnd();
 
 }
 
