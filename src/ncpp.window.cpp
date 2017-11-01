@@ -2,14 +2,14 @@
 namespace NCPP {
 	class _Window : public Window {
 	public:
-		_Window(WINDOW* wnd) : Window(wnd) {}
+		_Window() : Window(0) {}
 		void Update(WINDOW* wnd) {
 			Wnd = wnd;
 		}
 	};
-	_Window _StdWnd(stdscr);
-	_Window _NewWnd(newscr);
-	_Window _CurWnd(curscr);
+	_Window _StdWnd;
+	_Window _NewWnd;
+	_Window _CurWnd;
 
 	Window StdWnd() {
 		_StdWnd.Update(stdscr);

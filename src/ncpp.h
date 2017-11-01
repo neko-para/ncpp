@@ -3,4 +3,11 @@
 
 #include "ncpp.window.h"
 
+namespace NCPP {
+
+	bool Init();
+	void Exit();
+
+}
+
 #endif
