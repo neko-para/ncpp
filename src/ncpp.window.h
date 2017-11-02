@@ -1,6 +1,7 @@
 #ifndef _NCPP_WINDOW_H_
 #define _NCPP_WINDOW_H_
 #include "ncpp.share.h"
+#include <stdarg.h>
 #include <ncurses.h>
 
 namespace NCPP {
@@ -35,6 +36,15 @@ namespace NCPP {
 		}
 		int CurY() const {
 			return getcury(Wnd);
+		}
+		void print(const char* format, ...) const {
+			va_list lst;
+			va_start(lst, format);
+			vwprintw(Wnd, format, lst);
+			va_end(lst);
+		}
+		int get() const {
+			return wgetch(Wnd);
 		}
 	};
 
